@@ -1,0 +1,16 @@
+name: 'Test Composite Action'
+description: 'Test'
+inputs:
+  who-to-greet:
+    description: 'Who to greet'
+    required: false
+    default: 'World'
+runs:
+  using: "composite"
+  steps:
+    - name: Setup Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: 3.7
+    - run: echo Hello ${{ inputs.who-to-greet }}.
+      shell: bash
