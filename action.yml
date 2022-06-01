@@ -18,5 +18,5 @@ runs:
     - run: echo Hello ${{ inputs.who-to-greet }}.
       shell: bash
     - name: Restore Environment
-      run: cat env.txt >> GITHUB_ENV
+      run: cat env.txt >> $GITHUB_ENV
       shell: bash
