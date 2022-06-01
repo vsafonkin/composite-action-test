@@ -11,7 +11,7 @@ runs:
     - name: Save Environment
       run: |
         env > env
-        cat env
+        $GITHUB_PATH_BACKUP=$GITHUB_PATH
 
       shell: bash
     - name: Setup Python
@@ -21,5 +21,7 @@ runs:
     - run: echo Hello ${{ inputs.who-to-greet }}.
       shell: bash
     - name: Restore Environment
-      run: cat env > $GITHUB_ENV
+      run: |
+        cat env > $GITHUB_ENV
+        $GITHUB_PATH_BACKUP > $GITHUB_PATH
       shell: bash
