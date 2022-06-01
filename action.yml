@@ -9,7 +9,7 @@ runs:
   using: "composite"
   steps:
     - name: Save Environment
-      run: echo $GITHUB_ENV > $GITHUB_ENV_BACKUP
+      run: env > env.sh
       shell: bash
     - name: Setup Python
       uses: actions/setup-python@v3
@@ -18,5 +18,5 @@ runs:
     - run: echo Hello ${{ inputs.who-to-greet }}.
       shell: bash
     - name: Restore Environment
-      run: echo $GITHUB_ENV_BACKUP > $GITHUB_ENV
+      run: source env.sh
       shell: bash
