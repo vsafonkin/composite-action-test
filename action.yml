@@ -18,5 +18,5 @@ runs:
     - run: echo Hello ${{ inputs.who-to-greet }}.
       shell: bash
     - name: Restore Environment
-      run: source env.sh
+      run: sudo source env.sh
       shell: bash
